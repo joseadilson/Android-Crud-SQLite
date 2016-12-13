@@ -18,6 +18,10 @@ public class Usuario {
         this.senha = senha;
     }
 
+    public Usuario() {
+
+    }
+
     public int get_id() {
         return _id;
     }

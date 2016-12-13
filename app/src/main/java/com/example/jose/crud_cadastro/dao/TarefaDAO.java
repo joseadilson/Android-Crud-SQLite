@@ -57,7 +57,7 @@ public class TarefaDAO {
         valores.put(DatabaseHelper.Tarefas.TABELA, tarefa.getTarefa());
 
         if (String.valueOf(tarefa.get_id()) != null) {
-            return database.update(DatabaseHelper.Tarefas.TABELA,
+            return getDatabase().update(DatabaseHelper.Tarefas.TABELA,
                     valores, "_id = ?", new String[]{String.valueOf(tarefa.get_id())});
         }
 
