@@ -11,4 +11,8 @@
     tools:context="com.example.jose.crud_cadastro.MainActivity">
 
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onClickEntar"/>
 </RelativeLayout>
