@@ -89,6 +89,17 @@ public class UsuarioDAO {
         return null;
     }
 
+    public boolean logar(String login, String senha){
+        Cursor cursor  = getDatabase().query(DatabaseHelper.Usuarios.TABELA,
+                null, "LOGIN = ? AND SENHA = ?", new String[]{login, senha}, null, null, null, null);
+
+        if (cursor.moveToFirst()) {
+            return  true;
+        }
+
+        return false;
+    }
+
 
     //fechar a conexão
     public void fechar(){

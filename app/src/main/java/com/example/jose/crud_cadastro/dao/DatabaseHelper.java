@@ -29,13 +29,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 ")");
 
         //TABELA DE TAREFAS
-        db.execSQL("CRETAE TABLE TAREFAS (" +
-                "_id INTEGER PRIMARY KEY AUTOINCREMENT," +
+        db.execSQL("CREATE TABLE TAREFAS (" +
+                "_id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "TAREFA TEXT NOT NULL, " +
-                "DT_CRIACAO DATETIME DEFAULT CURRENT_DATETIME "+
+                "DT_CRIACAO DATETIME DEFAULT CURRENT_TIMESTAMP "+
                 ")");
 
-        db.execSQL("INSERT INTO USUARIOS(NOME, LOGIN, SENHA) VALUES('ADMIN', 'ADMIN', '123')");
+        db.execSQL("INSERT INTO USUARIOS(NOME, LOGIN, SENHA) VALUES('admin', 'admin', '123')");
     }
 
     @Override

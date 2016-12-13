@@ -55,20 +55,15 @@
                 android:paddingLeft="50dp"
                 android:paddingRight="30dp">
                 <android.support.design.widget.TextInputLayout
-                    android:textColorHint="#E91E63"
+                    android:id="@+id/input_layout_email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
                     <EditText
-                        android:textSize="13dp"
-                        android:hint="Login"
                         android:id="@+id/edLogin"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="textPersonName"
-                        android:background="@drawable/selector_bg_edit"
-                        android:paddingBottom="2dp"
-                        />
+                        android:hint="Digite o login" />
                 </android.support.design.widget.TextInputLayout>
             </LinearLayout>
             <LinearLayout
@@ -80,19 +75,15 @@
                 android:paddingRight="30dp"
                 android:paddingLeft="50dp">
                 <android.support.design.widget.TextInputLayout
-                    android:textColorHint="#E91E63"
+                    android:id="@+id/input_layout_senha"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
+
                     <EditText
-                        android:textSize="13dp"
-                        android:hint="Senha"
                         android:id="@+id/edSenha"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/selector_bg_edit"
-                        android:inputType="textPassword"
-                        android:paddingBottom="2dp"
-                        />
+                        android:hint="Digite a Senha" />
                 </android.support.design.widget.TextInputLayout>
             </LinearLayout>
             <LinearLayout
@@ -126,7 +117,8 @@
                     android:layout_width="150dp"
                     android:layout_height="50dp"
                     android:text="Entrar"
-                    android:textColor="#d3d3d3">
+                    android:textColor="#d3d3d3"
+                    android:onClick="onClickEntar">
                 </Button>
             </RelativeLayout>
 

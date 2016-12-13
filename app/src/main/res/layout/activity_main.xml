@@ -10,13 +10,5 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.jose.crud_cadastro.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="login_success"
-        android:textSize="24sp"
-        android:textColor="#03A9F4"
-        android:textStyle="bold"
-        />
 
 </RelativeLayout>
