@@ -25,7 +25,7 @@ public class ListaUsuariosActivity extends AppCompatActivity implements
     private UsuarioDAO usuarioDAO;
 
     private int idposicao;
-    private AlertDialog alertDialog, alertCondirmacao;
+    private AlertDialog alertDialog, alertConfirmacao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,8 +41,8 @@ public class ListaUsuariosActivity extends AppCompatActivity implements
         lista.setOnItemClickListener(this);
 
 
-        alertDialog = Mensagem.criarDialogConfirmacao(this);
-        alertCondirmacao = Mensagem.criarDialogConfirmacao(this);
+        alertDialog = Mensagem.alertDialog(this);
+        alertConfirmacao = Mensagem.criarDialogConfirmacao(this);
     }
 
     public void onClickCadastrar(View view) {
@@ -52,7 +52,29 @@ public class ListaUsuariosActivity extends AppCompatActivity implements
 
     @Override
     public void onClick(DialogInterface dialog, int which) {
+        int id = usuarioList.get(idposicao).get_id();
+        switch (which) {
+            //Editar case 0
+            case 0:
+            Intent it = new Intent(this, CadUsuarioActivity.class);
+            it.putExtra("USUARIO_ID", id);
+            startActivity(it);
+            break;
+            //
 
+            //Excluir case1
+            case 1:
+                alertConfirmacao.show();
+                break;
+            case DialogInterface.BUTTON_POSITIVE:
+                usuarioList.remove(idposicao); // remover da lista List
+                usuarioDAO.removerUsuario(id); // remover do banco DAO
+                lista.invalidateViews(); // Atualiza a lista
+                break;
+            case DialogInterface.BUTTON_NEGATIVE:
+                break;
+            //
+        }
     }
 
     @Override
