@@ -78,11 +78,11 @@ public class UsuarioDAO {
 
     public Usuario buscarUsuarioPorID(int id){
         Cursor cursor= getDatabase().query(DatabaseHelper.Usuarios.TABELA, DatabaseHelper.Usuarios.COLUNAS,
-                "_id = ?", new String[] {Integer.toString(id)}, null, null, null, null);
+                "_id = ?", new String[] {Integer.toString(id)}, null, null, null);
 
         if (cursor.moveToNext()) {
             Usuario model = criarUsuario(cursor);
-            cursor.close();;
+            cursor.close();
             return model;
         }
 

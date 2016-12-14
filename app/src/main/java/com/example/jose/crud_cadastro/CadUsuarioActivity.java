@@ -29,6 +29,16 @@ public class CadUsuarioActivity extends AppCompatActivity {
         edLogin =(EditText)findViewById(R.id.edLogin);
         edSenha =(EditText)findViewById(R.id.edSenha);
 
+        //Carregar usuario selecionado na ListaUsuarioActivity - Editar
+        idusuario = getIntent().getIntExtra("USUARIO_ID", 0);
+        if (idusuario > 0) {
+            Usuario model = usuarioDAO.buscarUsuarioPorID(idusuario);
+            edNome.setText(model.getNome());
+            edLogin.setText(model.getLogin());
+            edSenha.setText(model.getSenha());
+            setTitle("Atualizar usuario");
+        }
+
     }
 
 
@@ -37,10 +47,6 @@ public class CadUsuarioActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_cad_usuario, menu);
-
-        if (idusuario > 0) {
-            menu .findItem(R.menu.menu_cad_usuario).setVisible(true);
-        }
 
         return true;
     }
@@ -93,16 +99,6 @@ public class CadUsuarioActivity extends AppCompatActivity {
             }
         }
     }
-
-    public void onClickExcluir(MenuItem item) {
-        Excluir();
-    }
-
-    public void Excluir(){
-
-    }
-
-
 
     public void chamaMainActivity(){
         Intent it = new Intent(this, MainActivity.class);
