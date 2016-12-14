@@ -1,7 +1,9 @@
 package com.example.jose.crud_cadastro;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ListView;
 
 import com.example.jose.crud_cadastro.adapter.UsuarioAdapter;
@@ -28,5 +30,10 @@ public class ListaUsuariosActivity extends AppCompatActivity {
 
         lista = (ListView) findViewById(R.id.lstUsuarios);
         lista.setAdapter(usuarioAdapter);
+    }
+
+    public void onClickCadastrar(View view) {
+        Intent it = new Intent(this, CadUsuarioActivity.class);
+        startActivity(it);
     }
 }

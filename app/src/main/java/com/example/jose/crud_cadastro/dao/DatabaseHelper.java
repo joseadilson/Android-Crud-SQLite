@@ -32,7 +32,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 ")");
 
         db.execSQL("INSERT INTO USUARIOS(NOME, LOGIN, SENHA) VALUES('admin', 'admin', '123')");
-        onCreate(db);
     }
 
     @Override
