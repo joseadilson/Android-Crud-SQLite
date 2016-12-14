@@ -43,8 +43,8 @@ public class TarefaDAO {
         Cursor cursor = getDatabase().query(DatabaseHelper.Tarefas.TABELA,
                 DatabaseHelper.Tarefas.COLUNAS, null, null, null, null, null);
 
-        List<Tarefa> tarefas =  new ArrayList<>();
-        while (cursor.moveToFirst()){
+        List<Tarefa> tarefas =  new ArrayList<Tarefa>();
+        while (cursor.moveToNext()){
             Tarefa model = criarTarefa(cursor);
             tarefas.add(model);
         }

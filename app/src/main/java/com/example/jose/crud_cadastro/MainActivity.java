@@ -21,4 +21,9 @@ public class MainActivity extends AppCompatActivity {
         Intent it = new Intent(MainActivity.this, CadUsuarioActivity.class);
         startActivity(it);
     }
+
+    public void onClickMostrarLista(View view) {
+        Intent it = new Intent(MainActivity.this, ListaUsuariosActivity.class);
+        startActivity(it);
+    }
 }

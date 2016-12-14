@@ -10,7 +10,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
-    private static final String BANCO_DADOS = "tarefa";
+    private static final String BANCO_DADOS = "tarefas2";
     private static final int VERSAO = 1;
 
     public DatabaseHelper(Context context){
@@ -21,12 +21,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         // TABELA DE USUARIO
-        db.execSQL("CREATE TABLE USUARIOS (" +
-                "_id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                "NOME TEXT NOT NULL, " +
-                "LOGIN TEXT NOT NULL," +
-                "SENHA TEXT NOT NULL" +
-                ")");
+        db.execSQL("create table usuarios (_id integer primary key autoincrement, "
+        +"nome text not null, login text not null, senha text not null)");
 
         //TABELA DE TAREFAS
         db.execSQL("CREATE TABLE TAREFAS (" +
@@ -36,6 +32,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 ")");
 
         db.execSQL("INSERT INTO USUARIOS(NOME, LOGIN, SENHA) VALUES('admin', 'admin', '123')");
+        onCreate(db);
     }
 
     @Override

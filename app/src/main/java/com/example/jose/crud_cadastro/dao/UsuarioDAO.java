@@ -48,8 +48,8 @@ public class UsuarioDAO {
         Cursor cursor = getDatabase().query(DatabaseHelper.Usuarios.TABELA,
                 DatabaseHelper.Usuarios.COLUNAS, null, null, null, null, null);
 
-        List<Usuario> usuarios =  new ArrayList<>();
-        while (cursor.moveToFirst()){
+        List<Usuario> usuarios =  new ArrayList<Usuario>();
+        while (cursor.moveToNext()){
             Usuario model = criarUsuario(cursor);
             usuarios.add(model);
         }
@@ -63,9 +63,9 @@ public class UsuarioDAO {
         valores.put(DatabaseHelper.Usuarios.LOGIN, usuario.getLogin());
         valores.put(DatabaseHelper.Usuarios.SENHA, usuario.getSenha());
 
-        if (String.valueOf(usuario.get_id()) != null) {
+        if (usuario.get_id() != null) {
             return getDatabase().update(DatabaseHelper.Usuarios.TABELA,
-                    valores, "_id = ?", new String[]{String.valueOf(usuario.get_id())});
+                    valores, "_id = ?", new String[]{usuario.get_id().toString()});
         }
 
         return  getDatabase().insert(DatabaseHelper.Usuarios.TABELA, null, valores);

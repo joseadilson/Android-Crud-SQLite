@@ -6,7 +6,7 @@ package com.example.jose.crud_cadastro.model;
 
 public class Usuario {
 
-    private int _id;
+    private Integer _id;
     private String nome;
     private String login;
     private String senha;
@@ -22,13 +22,13 @@ public class Usuario {
 
     }
 
-    public int get_id() {
+    public Integer get_id() {
         return _id;
     }
-    public void set_id(int _id) {
+
+    public void set_id(Integer _id) {
         this._id = _id;
     }
-
 
     public String getNome() {
         return nome;

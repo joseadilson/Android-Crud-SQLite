@@ -16,7 +16,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity" />
-        <activity android:name=".CadUsuarioActivity"></activity>
+        <activity android:name=".CadUsuarioActivity" />
+        <activity android:name=".ListaUsuariosActivity"></activity>
     </application>
 
 </manifest>
