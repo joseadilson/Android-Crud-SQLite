@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/itListaUsuario"
+        android:title="Lista Usuario"
+        android:orderInCategory="100"
+        />
+
+    <item
+        android:id="@+id/itCadUsuario"
+        android:title="Cadastrode Usuarios"
+        android:orderInCategory="100"
+        />
+
+    <item
+        android:id="@+id/itSair"
+        android:title="Sair"
+        android:orderInCategory="100"
+        />
+
+    <item
+        android:id="@+id/itLogout"
+        android:title="LogOut"
+        android:orderInCategory="100"
+        />
+
+
+</menu>
