@@ -83,6 +83,7 @@
                         android:id="@+id/edSenha"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:inputType="textPassword"
                         android:hint="Digite a Senha" />
                 </android.support.design.widget.TextInputLayout>
             </LinearLayout>

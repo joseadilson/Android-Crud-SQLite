@@ -32,8 +32,6 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
-
-
         switch (item.getItemId()){
             case R.id.itListaUsuario:
                 Intent itLista = new Intent(this, ListaUsuariosActivity.class);
@@ -61,7 +59,6 @@ public class MainActivity extends AppCompatActivity {
                 finish();
                 break;
         }
-
         return super.onOptionsItemSelected(item);
     }
 }
