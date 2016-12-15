@@ -9,7 +9,7 @@
 
     <item
         android:id="@+id/itCadUsuario"
-        android:title="Cadastrode Usuarios"
+        android:title="Cadastro de Usuarios"
         android:orderInCategory="100"
         />
 

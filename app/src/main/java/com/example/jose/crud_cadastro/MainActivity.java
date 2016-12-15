@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.example.jose.crud_cadastro.util.Mensagem;
 
@@ -60,5 +61,12 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public void onClickCadastrarTarefa(View view) {
+
+        Intent it = new Intent(this, CadTarefasActivity.class);
+        startActivity(it);
+
     }
 }

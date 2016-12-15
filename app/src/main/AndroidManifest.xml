@@ -15,20 +15,24 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"
-            android:label="Tarefas"/>
-        <activity android:name=".CadUsuarioActivity"
+        <activity
+            android:name=".MainActivity"
+            android:label="Tarefas" />
+        <activity
+            android:name=".CadUsuarioActivity"
             android:label="Cadastro de usuarios">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ListaUsuariosActivity" />
         </activity>
-        <activity android:name=".ListaUsuariosActivity"
+        <activity
+            android:name=".ListaUsuariosActivity"
             android:label="Usuarios">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity"/>
+                android:value=".MainActivity" />
         </activity>
+        <activity android:name=".CadTarefasActivity"></activity>
     </application>
 
 </manifest>
