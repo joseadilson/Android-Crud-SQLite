@@ -32,7 +32,12 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-        <activity android:name=".CadTarefasActivity"></activity>
+        <activity android:name=".CadTarefasActivity"
+            android:label="Cadastro de tarefas">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
     </application>
 
 </manifest>
