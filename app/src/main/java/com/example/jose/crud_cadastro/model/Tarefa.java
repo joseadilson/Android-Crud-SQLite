@@ -16,6 +16,9 @@ public class Tarefa {
         this.dt_criacao = dt_criacao;
     }
 
+    public Tarefa(){
+
+    }
 
 
 
