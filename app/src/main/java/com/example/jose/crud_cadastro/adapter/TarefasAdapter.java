@@ -31,7 +31,7 @@ public class TarefasAdapter extends BaseAdapter {
 
     @Override
     public Object getItem(int position) {
-        return null;
+        return lista.get(position);
     }
 
     @Override
