@@ -26,7 +26,7 @@ public class TarefasAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return 0;
+        return lista.size();
     }
 
     @Override
