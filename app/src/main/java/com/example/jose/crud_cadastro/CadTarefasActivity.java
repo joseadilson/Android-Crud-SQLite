@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.jose.crud_cadastro.dao.TarefaDAO;
 import com.example.jose.crud_cadastro.model.Tarefa;
@@ -17,6 +18,7 @@ public class CadTarefasActivity extends AppCompatActivity {
     private TarefaDAO tarefaDAO;
     private Tarefa tarefa;
     private int idtarefa;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +44,41 @@ public class CadTarefasActivity extends AppCompatActivity {
 
     public void Salvar(){
         //SALVAR
+        boolean validacao = true;
+
+        String nomeTarefa = edNomeTarefa.getText().toString();
+
+        if (nomeTarefa == null || nomeTarefa.equals("")) {
+            validacao = false;
+            Toast.makeText(this, "Preencha o campo TAREFA para salvar!", Toast.LENGTH_SHORT).show();
+        } if (validacao) {
+            tarefa = new Tarefa();
+            tarefa.setTarefa(nomeTarefa);
+
+            //Para att a tarefa
+            if (idtarefa > 0) {
+                tarefa.set_id(idtarefa);
+            }
+
+
+            long resultado = tarefaDAO.salvarTarefa(tarefa);
+
+            if (resultado != 1) {
+                if (resultado > 0) {
+                    Toast.makeText(this, "Tarefa atualizada com sucesso!", Toast.LENGTH_SHORT).show();
+                    finish();
+                } else {
+                    Toast.makeText(this, "Tarefa cadastrada com sucesso!", Toast.LENGTH_SHORT).show();
+                    finish();
+                }
+            } else {
+                Toast.makeText(this, "Erro ao registrar|", Toast.LENGTH_SHORT).show();
+                finish();
+            }
+        }
     }
+
+
 
     public void chamaMainActivity(){
         Intent it = new Intent(this, MainActivity.class);

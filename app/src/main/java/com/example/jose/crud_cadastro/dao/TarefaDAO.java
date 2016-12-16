@@ -55,8 +55,9 @@ public class TarefaDAO {
     public long salvarTarefa(Tarefa tarefa){
         ContentValues valores = new ContentValues();
         valores.put(DatabaseHelper.Tarefas.TAREFA, tarefa.getTarefa());
+        //valores.put(DatabaseHelper.Tarefas.DT_CRIACAO, tarefa.getDt_criacao());
 
-        if (tarefa.get_id().toString() != null) {
+        if (tarefa.get_id() != null) {
             return getDatabase().update(DatabaseHelper.Tarefas.TABELA,
                     valores, "_id = ?", new String[]{tarefa.get_id().toString()});
         }
