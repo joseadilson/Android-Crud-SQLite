@@ -62,11 +62,13 @@ public class CadTarefasActivity extends AppCompatActivity {
 
             long resultado = tarefaDAO.salvarTarefa(tarefa);
 
-            if (resultado != 1) {
-                if (resultado > 0) {
+            if (resultado != -1) {
+                if (idtarefa > 0) {
                     Toast.makeText(this, "Tarefa atualizada com sucesso!", Toast.LENGTH_SHORT).show();
+                    edNomeTarefa.setText("");
                 } else {
                     Toast.makeText(this, "Tarefa cadastrada com sucesso!", Toast.LENGTH_SHORT).show();
+                    edNomeTarefa.setText("");
                 }
             } else {
                 Toast.makeText(this, "Erro ao registrar!", Toast.LENGTH_SHORT).show();
@@ -75,13 +77,10 @@ public class CadTarefasActivity extends AppCompatActivity {
         }
     }
 
-
-
     public void chamaMainActivity(){
         Intent it = new Intent(this, MainActivity.class);
         startActivity(it);
     }
-
 
     @Override
     protected void onDestroy() {

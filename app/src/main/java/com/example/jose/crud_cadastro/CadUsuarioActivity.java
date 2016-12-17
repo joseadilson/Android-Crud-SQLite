@@ -85,12 +85,16 @@ public class CadUsuarioActivity extends AppCompatActivity {
             long resultado = usuarioDAO.salvarUsuario(usuario);
 
             if (resultado != -1){
-                if (resultado > 0) {
+                if (idusuario > 0) {
                     Toast.makeText(this, "Registro Atualizado com sucesso!", Toast.LENGTH_SHORT).show();
-                    finish();
-                } else{
+                    edNome.setText("");
+                    edLogin.setText("");
+                    edSenha.setText("");
+                } else {
                     Toast.makeText(this, "Registro Cadastrado com sucesso!", Toast.LENGTH_SHORT).show();
-                    finish();
+                    edNome.setText("");
+                    edLogin.setText("");
+                    edSenha.setText("");
                 }
             } else {
                 Toast.makeText(this, "Erro ao registrar!", Toast.LENGTH_SHORT).show();
