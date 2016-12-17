@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity implements
     private TarefaDAO tarefaDAO;
 
     private int idposicao;
+    private AlertDialog alertDialog, alertConfirmacao;
 
 
 
@@ -44,6 +46,8 @@ public class MainActivity extends AppCompatActivity implements
         lista.setAdapter(tarefasAdapter);
         lista.setOnItemClickListener(this);
 
+        alertDialog = Mensagem.alertDialog(this);
+        alertConfirmacao = Mensagem.criarDialogConfirmacao(this);
 }
 
     @Override
@@ -94,11 +98,33 @@ public class MainActivity extends AppCompatActivity implements
 
     @Override
     public void onClick(DialogInterface dialog, int which) {
+        int id = tarefaList.get(idposicao).get_id();
+        switch (which) {
+            //Editar
+            case 0:
+                Intent it = new Intent(this, CadTarefasActivity.class);
+                it.putExtra("TAREFA_ID", id);
+                startActivity(it);
+                break;
+            //
 
+            //Excluir
+            case 1:
+                alertConfirmacao.show();
+                break;
+            case DialogInterface.BUTTON_POSITIVE:
+                tarefaList.remove(idposicao); //Remove da lista
+                tarefaDAO.removerTarefa(id); //Remove do banco DAO
+                lista.invalidateViews();
+                break;
+            case DialogInterface.BUTTON_NEGATIVE:
+                break;
+        }
     }
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+        idposicao = position;
+        alertDialog.show();
     }
 }
