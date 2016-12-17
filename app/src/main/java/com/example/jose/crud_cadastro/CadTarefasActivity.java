@@ -27,6 +27,15 @@ public class CadTarefasActivity extends AppCompatActivity {
         tarefaDAO = new TarefaDAO(this);
 
         edNomeTarefa =(EditText)findViewById(R.id.edNomeTarefa);
+
+        //Carregar a tarefa selecionada no MainActivity - Editar
+        idtarefa = getIntent().getIntExtra("TAREFA_ID", 0);
+        if (idtarefa > 0) {
+            Tarefa model = tarefaDAO.buscarTarefaPorID(idtarefa);
+            edNomeTarefa.setText(model.getTarefa());
+            setTitle("Atualizar tarefa");
+        }
+
     }
 
     @Override
