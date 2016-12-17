@@ -7,20 +7,15 @@ package com.example.jose.crud_cadastro.model;
 public class Tarefa {
     private Integer _id;
     private String tarefa;
-    private String dt_criacao;
 
-
-    public  Tarefa(Integer id, String tarefa, String dt_criacao){
+    public  Tarefa(Integer id, String tarefa){
         this._id = id;
         this.tarefa = tarefa;
-        this.dt_criacao = dt_criacao;
     }
 
     public Tarefa(){
 
     }
-
-
 
     public Integer get_id() {
         return _id;
@@ -36,10 +31,4 @@ public class Tarefa {
         this.tarefa = tarefa;
     }
 
-    public String getDt_criacao() {
-        return dt_criacao;
-    }
-    public void setDt_criacao(String dt_criacao) {
-        this.dt_criacao = dt_criacao;
-    }
 }

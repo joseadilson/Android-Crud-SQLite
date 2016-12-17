@@ -13,7 +13,6 @@ import com.example.jose.crud_cadastro.dao.TarefaDAO;
 import com.example.jose.crud_cadastro.model.Tarefa;
 
 public class CadTarefasActivity extends AppCompatActivity {
-
     private EditText edNomeTarefa;
     private TarefaDAO tarefaDAO;
     private Tarefa tarefa;
@@ -66,13 +65,11 @@ public class CadTarefasActivity extends AppCompatActivity {
             if (resultado != 1) {
                 if (resultado > 0) {
                     Toast.makeText(this, "Tarefa atualizada com sucesso!", Toast.LENGTH_SHORT).show();
-                    finish();
                 } else {
                     Toast.makeText(this, "Tarefa cadastrada com sucesso!", Toast.LENGTH_SHORT).show();
-                    finish();
                 }
             } else {
-                Toast.makeText(this, "Erro ao registrar|", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Erro ao registrar!", Toast.LENGTH_SHORT).show();
                 finish();
             }
         }
@@ -83,5 +80,12 @@ public class CadTarefasActivity extends AppCompatActivity {
     public void chamaMainActivity(){
         Intent it = new Intent(this, MainActivity.class);
         startActivity(it);
+    }
+
+
+    @Override
+    protected void onDestroy() {
+        tarefaDAO.fechar();
+        super.onDestroy();
     }
 }

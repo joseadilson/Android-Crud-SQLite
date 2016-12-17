@@ -33,8 +33,7 @@ public class TarefaDAO {
     private Tarefa criarTarefa(Cursor cursor){
         Tarefa model = new Tarefa(
                 cursor.getInt(cursor.getColumnIndex(DatabaseHelper.Tarefas._ID)),
-                cursor.getString(cursor.getColumnIndex(DatabaseHelper.Tarefas.TAREFA)),
-                cursor.getString(cursor.getColumnIndex(DatabaseHelper.Tarefas.DT_CRIACAO))
+                cursor.getString(cursor.getColumnIndex(DatabaseHelper.Tarefas.TAREFA))
         );
         return model;
     }
@@ -55,7 +54,6 @@ public class TarefaDAO {
     public long salvarTarefa(Tarefa tarefa){
         ContentValues valores = new ContentValues();
         valores.put(DatabaseHelper.Tarefas.TAREFA, tarefa.getTarefa());
-        //valores.put(DatabaseHelper.Tarefas.DT_CRIACAO, tarefa.getDt_criacao());
 
         if (tarefa.get_id() != null) {
             return getDatabase().update(DatabaseHelper.Tarefas.TABELA,

@@ -10,10 +10,25 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
 
+import com.example.jose.crud_cadastro.adapter.TarefasAdapter;
+import com.example.jose.crud_cadastro.dao.TarefaDAO;
+import com.example.jose.crud_cadastro.model.Tarefa;
 import com.example.jose.crud_cadastro.util.Mensagem;
 
-public class MainActivity extends AppCompatActivity {
+import java.util.List;
+
+public class MainActivity extends AppCompatActivity implements
+        AdapterView.OnItemClickListener, DialogInterface.OnClickListener{
+    private ListView lista;
+    private List<Tarefa> tarefaList;
+    private TarefasAdapter tarefasAdapter;
+    private TarefaDAO tarefaDAO;
+
+    private int idposicao;
+
 
 
     @Override
@@ -21,8 +36,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        tarefaDAO = new TarefaDAO(MainActivity.this);
+        tarefaList = tarefaDAO.listarTarefas();
+        tarefasAdapter = new TarefasAdapter(MainActivity.this, tarefaList);
 
-    }
+        lista = (ListView) findViewById(R.id.lstTarefas);
+        lista.setAdapter(tarefasAdapter);
+        lista.setOnItemClickListener(this);
+
+}
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -67,6 +89,16 @@ public class MainActivity extends AppCompatActivity {
 
         Intent it = new Intent(this, CadTarefasActivity.class);
         startActivity(it);
+
+    }
+
+    @Override
+    public void onClick(DialogInterface dialog, int which) {
+
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
     }
 }

@@ -88,11 +88,9 @@ public class CadUsuarioActivity extends AppCompatActivity {
                 if (resultado > 0) {
                     Toast.makeText(this, "Registro Atualizado com sucesso!", Toast.LENGTH_SHORT).show();
                     finish();
-                    chamaMainActivity();
                 } else{
                     Toast.makeText(this, "Registro Cadastrado com sucesso!", Toast.LENGTH_SHORT).show();
                     finish();
-                    chamaMainActivity();
                 }
             } else {
                 Toast.makeText(this, "Erro ao registrar!", Toast.LENGTH_SHORT).show();
@@ -110,6 +108,5 @@ public class CadUsuarioActivity extends AppCompatActivity {
         usuarioDAO.fechar();
         super.onDestroy();
     }
-
 
 }
