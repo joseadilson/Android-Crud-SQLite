@@ -33,6 +33,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         ButterKnife.inject(this);
+        setTitle("Login");
 
         edLogin = (EditText)findViewById(R.id.edLogin);
         edSenha = (EditText)findViewById(R.id.edSenha);
